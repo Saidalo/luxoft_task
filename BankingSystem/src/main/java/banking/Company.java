@@ -5,6 +5,7 @@ public class Company  {
 
 	public Company(String companyName, int taxId) {
 		// complete the function
+		this.companyName = companyName;
 	}
 
 	public String getCompanyName() {

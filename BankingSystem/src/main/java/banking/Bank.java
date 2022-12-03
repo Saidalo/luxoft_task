@@ -11,6 +11,7 @@ public class Bank implements BankInterface {
 
 	public Bank() {
 		// complete the function
+		accounts = new LinkedHashMap<Long, Account>();
 	}
 
 	private Account getAccount(Long accountNumber) {
@@ -25,25 +26,30 @@ public class Bank implements BankInterface {
 
 	public Long openConsumerAccount(Person person, int pin, double startingDeposit) {
 		// complete the function
+		accounts.put(person.getId(), new Account())
         return -1L;
 	}
 
 	public boolean authenticateUser(Long accountNumber, int pin) {
 		// complete the function
+		accounts.get(accountNumber).validatePin(pin);
         return true;
 	}
 
 	public double getBalance(Long accountNumber) {
 		// complete the function
-        return -1;
+
+        return accounts.get(accountNumber).getBalance();
 	}
 
 	public void credit(Long accountNumber, double amount) {
 		// complete the function
+		accounts.get(accountNumber).creditAccount(amount);
 	}
 
 	public boolean debit(Long accountNumber, double amount) {
 		// complete the function
-        return true;
+
+        return accounts.get(accountNumber).debitAccount(amount);
 	}
 }
