@@ -16,7 +16,7 @@ public class Bank implements BankInterface {
 
 	private Account getAccount(Long accountNumber) {
 		// complete the function
-        return null;
+        return accounts.get(accountNumber);
 	}
 
 	public Long openCommercialAccount(Company company, int pin, double startingDeposit) {
@@ -26,30 +26,30 @@ public class Bank implements BankInterface {
 
 	public Long openConsumerAccount(Person person, int pin, double startingDeposit) {
 		// complete the function
-		accounts.put(person.getId(), new Account())
+		new ConsumerAccount(person, 0, pin, startingDeposit);
         return -1L;
 	}
 
 	public boolean authenticateUser(Long accountNumber, int pin) {
 		// complete the function
-		accounts.get(accountNumber).validatePin(pin);
-        return true;
+
+        return getAccount(accountNumber).validatePin(pin);
 	}
 
 	public double getBalance(Long accountNumber) {
 		// complete the function
 
-        return accounts.get(accountNumber).getBalance();
+        return getAccount(accountNumber).getBalance();
 	}
 
 	public void credit(Long accountNumber, double amount) {
 		// complete the function
-		accounts.get(accountNumber).creditAccount(amount);
+		getAccount(accountNumber).creditAccount(amount);
 	}
 
 	public boolean debit(Long accountNumber, double amount) {
 		// complete the function
 
-        return accounts.get(accountNumber).debitAccount(amount);
+        return getAccount(accountNumber).debitAccount(amount);
 	}
 }
