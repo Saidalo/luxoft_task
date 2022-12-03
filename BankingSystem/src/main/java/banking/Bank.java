@@ -21,14 +21,18 @@ public class Bank implements BankInterface {
 
 	public Long openCommercialAccount(Company company, int pin, double startingDeposit) {
 		// complete the function
-        return -1L;
+		Long _id = (long) accounts.size();
+		accounts.put(_id, new CommercialAccount(company, _id, pin, startingDeposit));
+
+		return _id;
 	}
 
 	public Long openConsumerAccount(Person person, int pin, double startingDeposit) {
 		// complete the function
-		accounts.put(0, new ConsumerAccount(person, Long.valueOf( accounts.size()), pin, startingDeposit));
+		Long _id = (long) accounts.size();
+		accounts.put(_id, new ConsumerAccount(person, _id, pin, startingDeposit));
 
-        return -1L;
+        return _id;
 	}
 
 	public boolean authenticateUser(Long accountNumber, int pin) {
