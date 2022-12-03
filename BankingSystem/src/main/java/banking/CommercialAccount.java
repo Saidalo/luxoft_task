@@ -14,6 +14,7 @@ public class CommercialAccount  {
 
 	public CommercialAccount(Company company, Long accountNumber, int pin, double startingDeposit) {
 		// complete the function
+
 	}
 
 	/**
@@ -21,6 +22,7 @@ public class CommercialAccount  {
 	 */
 	protected void addAuthorizedUser(Person person) {
 		// complete the function
+		authorizedUsers.add(person);
 	}
 
 	/**
@@ -29,6 +31,6 @@ public class CommercialAccount  {
 	 */
 	public boolean isAuthorizedUser(Person person) {
 		// complete the function
-        return true;
+        return authorizedUsers.stream().anyMatch(i->i == person);
 	}
 }

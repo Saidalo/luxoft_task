@@ -26,7 +26,8 @@ public class Bank implements BankInterface {
 
 	public Long openConsumerAccount(Person person, int pin, double startingDeposit) {
 		// complete the function
-		new ConsumerAccount(person, 0, pin, startingDeposit);
+		accounts.put(0, new ConsumerAccount(person, Long.valueOf( accounts.size()), pin, startingDeposit));
+
         return -1L;
 	}
 
